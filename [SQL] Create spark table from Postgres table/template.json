@@ -1,0 +1,110 @@
+{
+    "model": "genie.notebooktemplate",
+    "pk": 1,
+    "fields": {
+      "template": {
+        "info": {
+          "isRunning": false
+        },
+        "name": "{{name}}",
+        "config": {
+          "looknfeel": "default",
+          "personalizedMode": "false",
+          "isZeppelinNotebookCronEnable": false
+        },
+        "version": "0.9.0",
+        "noteForms": {},
+        "noteParams": {},
+        "paragraphs": [
+          {
+            "apps": [],
+            "text": "%spark.sql\nCREATE TABLE {{tableName}}_temptable\nUSING org.apache.spark.sql.jdbc\nOPTIONS (\nurl '{{postgresUrl}}',\ndbtable '{{postgresTable}}',\nuser '{{postgresUser}}',\npassword '{{postgresPassword}}',\ndriver 'org.postgresql.Driver'\n);\nCREATE TABLE {{tableName}} AS SELECT * FROM {{tableName}}_temptable;",
+            "user": "anonymous",
+            "focus": true,
+            "config": {
+              "enabled": true,
+              "results": {},
+              "colWidth": 12,
+              "fontSize": 9,
+              "editorMode": "ace/mode/text",
+              "editorSetting": {
+                "language": "text",
+                "completionKey": "TAB",
+                "editOnDblClick": false,
+                "completionSupport": true
+              }
+            },
+            "status": "READY",
+            "settings": {
+              "forms": {},
+              "params": {}
+            },
+            "runtimeInfos": {},
+            "progressUpdateIntervalMs": 500
+          }
+        ],
+        "angularObjects": {},
+        "defaultInterpreterGroup": "spark"
+      },
+      "formJson": {
+        "fields": [
+          {
+          "name": "postgresUrl",
+          "type": "text",
+          "label": "Postgres Connection Url",
+          "rules": [
+            {
+              "message": "Postgres Connection Url is required",
+              "required": true
+            }
+          ]
+          },
+          {
+            "name": "postgresTable",
+            "type": "text",
+            "label": "Postgres Table",
+            "rules": [
+              {
+                "message": "Postgres Table is required",
+                "required": true
+              }
+            ]
+            },
+          {
+            "name": "postgresUser",
+            "type": "text",
+            "label": "Postgres User",
+            "rules": [
+              {
+                "message": "Postgres User is required",
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "postgresPassword",
+            "type": "text",
+            "label": "Postgres Password",
+            "rules": [
+              {
+                "message": "Postgres Password is required",
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "tableName",
+            "type": "text",
+            "label": "Destination Table Name",
+            "rules": [
+              {
+                "message": "Destination Table Name is required",
+                "required": true
+              }
+            ]
+          }
+        ]
+      },
+      "name": "[SQL] Create spark table from Postgres table"
+    }
+  }

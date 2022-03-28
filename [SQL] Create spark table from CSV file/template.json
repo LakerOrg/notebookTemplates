@@ -1,0 +1,77 @@
+{
+    "model": "genie.notebooktemplate",
+    "pk": 1,
+    "fields": {
+      "template": {
+        "info": {
+          "isRunning": false
+        },
+        "name": "{{name}}",
+        "config": {
+          "looknfeel": "default",
+          "personalizedMode": "false",
+          "isZeppelinNotebookCronEnable": false
+        },
+        "version": "0.9.0",
+        "noteForms": {},
+        "noteParams": {},
+        "paragraphs": [
+          {
+            "apps": [],
+            "text": "%spark.sql\nCREATE TABLE {{tableName}} USING csv OPTIONS(path '{{s3FileLocation}}', header true)",
+            "user": "anonymous",
+            "focus": true,
+            "config": {
+              "enabled": true,
+              "results": {},
+              "colWidth": 12,
+              "fontSize": 9,
+              "editorMode": "ace/mode/text",
+              "editorSetting": {
+                "language": "text",
+                "completionKey": "TAB",
+                "editOnDblClick": false,
+                "completionSupport": true
+              }
+            },
+            "status": "READY",
+            "settings": {
+              "forms": {},
+              "params": {}
+            },
+            "runtimeInfos": {},
+            "progressUpdateIntervalMs": 500
+          }
+        ],
+        "angularObjects": {},
+        "defaultInterpreterGroup": "spark"
+      },
+      "formJson": {
+        "fields": [
+          {
+          "name": "s3FileLocation",
+          "type": "text",
+          "label": "CSV File Location",
+          "rules": [
+            {
+              "message": "File location is required",
+              "required": true
+            }
+          ]
+          },
+          {
+            "name": "tableName",
+            "type": "text",
+            "label": "Destination Table Name",
+            "rules": [
+              {
+                "message": "Destination Table Name is required",
+                "required": true
+              }
+            ]
+          }
+        ]
+      },
+      "name": "[SQL] Create spark table from CSV file"
+    }
+  }
