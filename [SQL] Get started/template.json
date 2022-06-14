@@ -1,0 +1,72 @@
+{
+  "template": {
+    "info": {
+      "isRunning": false
+    },
+    "name": "{{name}}",
+    "config": {
+      "looknfeel": "default",
+      "personalizedMode": "false",
+      "isZeppelinNotebookCronEnable": false
+    },
+    "version": "0.9.0",
+    "noteForms": {},
+    "noteParams": {},
+    "paragraphs": [
+      {
+        "apps": [],
+        "text": "%spark.sql\nCREATE TABLE netflix USING csv OPTIONS(path 's3a://lakertemplatenotebookdata/netflix_titles.csv', header true)",
+        "user": "anonymous",
+        "focus": true,
+        "config": {
+          "enabled": true,
+          "results": {},
+          "colWidth": 12,
+          "fontSize": 9,
+          "editorMode": "ace/mode/text",
+          "editorSetting": {
+            "language": "text",
+            "completionKey": "TAB",
+            "editOnDblClick": false,
+            "completionSupport": true
+          }
+        },
+        "status": "READY",
+        "settings": {
+          "forms": {},
+          "params": {}
+        },
+        "runtimeInfos": {},
+        "progressUpdateIntervalMs": 500
+      },
+      {
+        "apps": [],
+        "text": "%spark.sql\nSELECT * FROM netflix",
+        "user": "anonymous",
+        "focus": false,
+        "config": {
+          "enabled": true,
+          "results": {},
+          "colWidth": 12,
+          "fontSize": 9,
+          "editorMode": "ace/mode/text",
+          "editorSetting": {
+            "language": "text",
+            "completionKey": "TAB",
+            "editOnDblClick": false,
+            "completionSupport": true
+          }
+        },
+        "status": "READY",
+        "settings": {
+          "forms": {},
+          "params": {}
+        },
+        "runtimeInfos": {},
+        "progressUpdateIntervalMs": 500
+      }
+    ],
+    "angularObjects": {},
+    "defaultInterpreterGroup": "spark"
+  }
+}
