@@ -68,5 +68,8 @@
     ],
     "angularObjects": {},
     "defaultInterpreterGroup": "spark"
+  },
+  "formJson": {
+    "fields": []
   }
 }
